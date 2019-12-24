@@ -10,9 +10,13 @@ echo '<?xml version="1.0" encoding="utf-8"?>
   <item>
     <title>Response</title>
     <link>' . $url. '</link>
-    <description>' . base64_encode(file_get_contents($url)) . ']]></description>
+    <description><![CDATA[' . base64_encode(file_get_contents($url)) . ']]></description>
   </item>
 </channel>
 </rss>';
 
-#<description><![CDATA[' . file_get_contents($url) . ']]></description>
+#Using CDATA 
+#   <description><![CDATA[' . file_get_contents($url) . ']]></description>
+
+#Using base64_encode
+#<description>' . base64_encode(file_get_contents($url)) . ']]></description>
